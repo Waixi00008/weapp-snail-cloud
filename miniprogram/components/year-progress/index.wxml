@@ -1,0 +1,44 @@
+<view class="container">
+  <progress percent="{{date.percent()}}" activeColor="#EA5149"></progress>
+  <text>{{date.year()}}年已经过去了{{date.days()}}天,{{date.percent()}}%</text>
+</view>
+
+<wxs module="date">
+  // 判断是否是闰年 闰年366天 平年365天
+  function isLeapYear(year) {
+    if (year % 400 === 0) {
+      return true
+    } else if (year % 4 === 0 && year % 100 !== 0) {
+      return true
+    } else {
+      return false
+    }
+  }
+  // 一年的天数
+  function getDayofYear(year) {
+    return isLeapYear(year) ? 366 : 365
+  }
+
+  // 获取年
+  var year = function() {
+    return getDate(Date.now()).getFullYear()
+  }
+
+  // 获取这个年过了多少天
+  var days = function() {
+    // 设置一年第一天
+    var start = getDate(Date.now())
+    start.setMonth(0)
+    start.setDate(1)
+    // 时间戳
+    var offset = getDate(Date.now()).getTime() - start.getTime()
+    return parseInt(offset / 1000 / 60 / 60 / 24) + 1
+  }
+  
+  // 百分比
+  var percent = function() {
+    var total = getDayofYear(year())
+    return Number(days() * 100 / total).toFixed(1)
+  }
+  module.exports = { year: year,days: days,percent: percent }
+</wxs>

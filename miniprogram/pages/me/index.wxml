@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="userInfo">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+    <button class="btn nickName" open-type="getUserInfo" bind:getuserinfo="onGotUserInfo">{{nickName}}</button>
+  </view>
+  <v-year-progress class="progress" />
+  <button v-if="{{userinfo.openId}}" class="btn book" bind:tap="onScanCode">添加图书</button>
+</view>

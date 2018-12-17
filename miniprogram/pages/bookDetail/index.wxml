@@ -1,0 +1,47 @@
+<view class="container">
+  <v-book book="{{book}}" />
+  <v-comment-list title="评论" comments="{{comments}}" />
+  <view class="comment row" wx:if="{{x1.shouldAddComment(userInfo,comments)}}">
+    <form bind:submit="bindformSubmit" bind:reset="bindformReset">
+      <textarea value="{{comment}}" name="textarea" class="content" placeholder='请输入图书短评' maxlength='150' auto-focus/>
+      <view class="detail">
+        <view class="location">
+          <text>地理位置: </text>
+          <switch color='#EA5A49' checked="{{location}}" bind:change="getGeo"></switch>
+          <text class="text-primary">{{location}}</text>
+        </view>
+        <view class="phone">
+          <text>手机型号: </text>
+          <switch color="#EA5A49" checked="{{phone}}" bind:change="getPhone"></switch>
+          <text class="text-primary">{{phone}}</text>
+        </view>
+      </view>
+      <button form-type="submit" class="btn">添加评论</button>
+    </form>
+  </view>
+  <text wx:else class='tips-footer'>
+    未登录或者已经评论过啦
+  </text>
+  <button class="btn share" open-type="share">分享好友</button>
+</view>
+
+<wxs module="x1">
+  // 参照es5语法 可以去babel转化
+  function shouldAddComment(userInfo, comments) {
+    // 没登录，无法评论
+    if (!userInfo.openId) {
+      return false
+    }
+    // 只能评论一次
+    if (comments.filter(function(v) {
+        return v.openId === userInfo.openId;
+      }).length) {
+      return false
+    }
+    return true
+  }
+
+  module.exports = {
+    shouldAddComment: shouldAddComment
+  }
+</wxs>

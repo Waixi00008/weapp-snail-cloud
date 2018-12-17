@@ -1,0 +1,10 @@
+.tag {
+  display: inline-block;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+  padding: 10rpx;
+  min-width: 50px;
+  color: #EA5149;
+  border: 1px solid #EA5149;
+  border-radius: 10px;
+}

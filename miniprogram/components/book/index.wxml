@@ -1,0 +1,63 @@
+<view class="container">
+  <view class="cover">
+    <image class="bg" src="{{book.imageUrl}}" mode="aspectFill"></image>
+    <image class="avatar" src="{{book.imageUrl}}" mode="aspectFit"></image>
+    <view class="info">
+      <text class="title">{{book.title}}</text>
+      <text class="author">{{book.author}}</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="left">
+      <image class="userAvatar" src="{{book.avatarUrl}}"></image>
+      <text class="nickName">{{book.nickName}}</text>
+    </view>
+    <view class="right">
+      <text class="score">{{book.rating}}</text>
+      <v-rating class="rating" max="10" rating="{{book.rating}}" disabled/>
+    </view>
+  </view>
+  <view class="row">
+    <text class="left">{{book.publisher}}</text>
+    <text class="right">{{book.price}}</text>
+  </view>
+  <view class="tag-container">
+    <v-tag wx:if="{{tag}}" wx:key="tag" wx:for="{{tools.StringToSplit(book.tags)}}" wx:for-item="tag" tag="{{tag}}" />
+  </view>
+  <!-- 数组写法 -->
+  <view class="summary" wx:key="i" wx:for="{{tools.StringToSplit(book.summary,'\\n')}}" wx:for-index="i">
+    <text>{{tools.StringToSplit(item)}}</text>
+  </view>
+  <!-- 正则写法 -->
+  <!-- <view class="summary">
+    <text decode="true" space='nbsp'>{{tools.format(book.summary)}}</text>
+  </view> -->
+</view>
+
+
+<wxs module="tools">
+  // 正则写法 字符串转数组,其他不处理
+  function format(text) {
+    if (!text) {
+      return
+    }
+    //正则表达式
+    //\\n里的\需要转义
+    var reg = getRegExp('\\\\n', 'g')
+    return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
+  }
+
+  function StringToSplit(data,text = ',') {
+    // 转义切割成数组
+    if (data.constructor === 'String') {
+      return data.split(text)
+    } else {
+      return data
+    }
+  }
+
+  module.exports = {
+    format: format,
+    StringToSplit: StringToSplit
+  }
+</wxs>

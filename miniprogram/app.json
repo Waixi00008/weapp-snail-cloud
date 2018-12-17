@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/me/index",
+    "pages/books/index",
+    "pages/comments/index",
+    "pages/bookDetail/index"
+  ],
+  "window": {
+    "backgroundColor": "#EA5149",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#EA5149",
+    "navigationBarTitleText": "蜗牛图书云开发",
+    "navigationBarTextStyle": "light"
+  },
+  "tabBar": {
+    "selectedColor": "#EA5149",
+    "list": [
+      {
+        "pagePath": "pages/books/index",
+        "text": "图书",
+        "iconPath": "images/book.png",
+        "selectedIconPath": "images/book-active.png"
+      },
+      {
+        "pagePath": "pages/comments/index",
+        "text": "我的图书和评论",
+        "iconPath": "images/todo.png",
+        "selectedIconPath": "images/todo-active.png"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me-active.png"
+      }
+    ]
+  },
+  "cloud": true
+}

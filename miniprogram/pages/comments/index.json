@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "v-book-card": "/components/book-card/index",
+    "v-comment-list": "/components/comment-list/index"
+  }
+}

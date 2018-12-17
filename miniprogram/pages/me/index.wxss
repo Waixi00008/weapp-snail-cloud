@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  width: 100%;
+}
+.userInfo {
+  margin-top:100rpx;
+}
+.avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+}
+.nickName {
+  margin-bottom: 10px;
+}
+.progress {
+  width: 100%;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.btn.book {
+  margin-top: 50rpx;
+}

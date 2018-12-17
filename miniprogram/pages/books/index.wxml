@@ -1,0 +1,16 @@
+<view class="container">
+  <swiper class="swiper-container" indicator-dots="true" indicator-active-color="#EA5149" autoplay="true" interval="6000" duration="1000" circular="true">
+    <swiper-item class="swiper-item-container" wx:key="index" wx:for="{{tops}}" wx:for-index="index" wx:for-item="top">
+      <image bind:tap="onbookTap" data-isbn="{{book.isbn}}" class="swiper-img" src="{{book.imageUrl}}" mode="aspectFit" wx:key="idx" wx:for="{{top}}" wx:for-index="idx" wx:for-item="book" />
+    </swiper-item>
+  </swiper>
+  <!-- 触发自定义点击事件 -->
+  <v-book-card bind:bookTap='onbookTap' books="{{books}}">
+  </v-book-card>
+  <text class="tips-footer" wx:if="{{!more && books.length > 10}}">
+    没有更多数据
+  </text>
+  <text wx:if="{{books.length === 0}}" class='tips-center'>
+    暂时没有数据
+  </text>
+</view>

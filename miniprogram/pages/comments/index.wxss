@@ -1,0 +1,18 @@
+.books-title {
+  margin-bottom: 30rpx;
+  padding-left: 30rpx;
+  line-height: 40px;
+  background-color: #eee;
+  font-size: 40rpx;
+}
+
+.tips {
+  margin: 200rpx auto;
+  text-align: center;
+}
+
+.br {
+  width: 100%;
+  height: 2px;
+  background-color: #EA5149
+}

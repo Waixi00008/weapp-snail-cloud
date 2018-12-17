@@ -1,0 +1,10 @@
+<view class="container" wx:if="{{userInfo.openId}}">
+  <v-comment-list  title="我的评论" comments="{{comments}}" />
+  <view wx:if='{{!comments.length}}' class="tips">您没有评论过</view>
+  <view class="br"></view>
+  <v-book-card  bind:bookTap = "onbookTap"  books="{{books}}">
+    <view slot="title" class="books-title">我的图书</view>
+  </v-book-card>
+  <view wx:if='{{!books.length}}' class="tips">您没有添加过图书,快去添加几本把</view>
+</view>
+<view wx:else class="tips">您还没有登陆账号，请先登陆</view>

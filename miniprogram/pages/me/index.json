@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "v-year-progress": "../../components/year-progress/index"
+  }
+}

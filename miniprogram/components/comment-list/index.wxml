@@ -1,0 +1,19 @@
+<view class="comment-container">
+  <view wx:if="{{title}}" class="comment-title">{{title}}</view>
+  <view class="comment" wx:key="comment._id" wx:for="{{comments}}" wx:for-item="comment">
+    <view class="userInfo">
+      <view class="left">
+        <image class="avatar" src="{{comment.avatarUrl}}"></image>
+        <text>{{comment.nickName}}</text>
+      </view>
+      <view class="right">
+        <text class="text-primary">{{comment.location || '未知地点'}}</text>
+        <text>--</text>
+        <text class="text-primary">{{comment.phone || '未知型号'}}</text>
+      </view>
+    </view>
+    <view class="comment-content">
+      {{comment.comment}}
+    </view>
+  </view>
+</view>

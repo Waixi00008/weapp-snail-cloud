@@ -1,0 +1,35 @@
+<view class="container">
+  <slot name="title"></slot>
+  <view class="sub-container" bind:tap="onTap" data-isbn="{{book.isbn}}" wx:key="index" wx:for="{{books}}" wx:for-item="book">
+    <view class="cover">
+      <image catch:tap="onPreview" data-imageUrl="{{book.imageUrl}}" class="avatar" src="{{book.imageUrl}}" mode="aspectFit"></image>
+    </view>
+    <view class="detail">
+      <view class="row">
+        <view class="left">
+          <text class="title">{{book.title}}</text>
+        </view>
+        <view class="right">
+          <text class="score">{{book.rating}}</text>
+          <v-rating class="rating" max="10" rating='{{book.rating}}' disabled/>
+        </view>
+      </view>
+      <view class="row">
+        <view class="left">
+          <text class="author">{{book.author}}</text>
+        </view>
+        <view class="right">
+          <text class="count">{{book.count}}</text>
+        </view>
+      </view>
+      <view class="row">
+        <view class="left">
+          <text class="publisher">{{book.publisher}}</text>
+        </view>
+        <view class="right">
+          <text class="addUser">添加人:{{book.nickName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+progress {
+  width: 100%;
+}
+text {
+  display: block;
+  margin-top: 10rpx;
+  width: 100%;
+  text-align: center;
+}
