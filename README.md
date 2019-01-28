@@ -11,7 +11,7 @@
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
 ## todo
-
+- Promise写法有问题 使用resolve,reject而不是return
 - async await 改写
 - 小程序关联表
 - 评论 图书 加载更多或分页
